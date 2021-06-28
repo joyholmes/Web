@@ -240,10 +240,10 @@ Electron 框架就是基于 Node.js 的。也可以说：Electron 是 Node.js �
 
 ## 我的公众号
 
-想学习**代码之外的技能**？不妨关注我的微信公众号：**千古壹号**（id：`qianguyihao`）。
+想学习**更多技能**？不妨关注我的微信公众号：**千古壹号**（id：`qianguyihao`）。
 
 扫一扫，你将发现另一个全新的世界，而这将是一场美丽的意外：
 
-![](http://img.smyhvae.com/20200101.png)
+![](https://img.smyhvae.com/20200102.png)
 
 ##
