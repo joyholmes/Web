@@ -1,3 +1,9 @@
+---
+title: 03-初识HTML
+publish: true
+---
+
+<ArticleTopAd></ArticleTopAd>
 
 
 
@@ -15,7 +21,7 @@ PS：文件的后缀名不能决定文件格式，只能决定打开文件打开
 
 ### Sublime Text 的使用
 
-详情请移步至：[Sublime Text使用技巧](https://github.com/qianguyihao/Mac/blob/master/05-%E5%85%A8%E5%B9%B3%E5%8F%B0%E8%BD%AF%E4%BB%B6/Sublime%20Text%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.md)
+详情请移步至：[Sublime Text使用技巧](https://github.com/qianguyihao/Mac/blob/master/03-%E5%85%A8%E5%B9%B3%E5%8F%B0%E8%BD%AF%E4%BB%B6/Sublime%20Text%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.md)
 
 ## HTML的概述
 
@@ -141,7 +147,7 @@ HTML标签通常是成对出现的（<font color="blue">**双边标记**</font>�
 | ---------------- | :----: | :----------------------------- |
 | `<html></html>`    | HTML标签 | 页面中最大的标签，我们成为根标签             |
 | `<head></head>`    | 文档的头部  | 注意在head标签中我们必须要设置的标签是title     |
-| `<titile></title>` | 文档的标题  | 让页面拥有一个属于自己的网页标题               |
+| `<title></title>` | 文档的标题  | 让页面拥有一个属于自己的网页标题               |
 | `<body></body>`    | 文档的主体  | 元素包含文档的所有内容，页面内容 基本都是放到body里面的 |
 
 

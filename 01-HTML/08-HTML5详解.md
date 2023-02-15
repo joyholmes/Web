@@ -1,8 +1,10 @@
+---
+title: 08-HTML5详解
+publish: true
+---
 
+<ArticleTopAd></ArticleTopAd>
 
-> 本文最初发表于[博客园](https://www.cnblogs.com/smyhvae/p/8424230.html)，并在[GitHub](https://github.com/qianguyihao/Web)上持续更新**前端的系列文章**。欢迎在GitHub上关注我，一起入门和进阶前端。
-
-> 以下是正文。
 
 ## HTML5的介绍
 
@@ -338,7 +340,7 @@ PS:我们在测试 IE 浏览器的兼容的时候，可以使用软件 ietest，
             datetime: <input type="datetime">
         </label>
         <label for="">
-            week: <input type="week" name="month">
+            week: <input type="week" name="week">
         </label>
         <label for="">
             month: <input type="month" name="month">

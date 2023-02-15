@@ -1,3 +1,11 @@
+---
+title: 06-call、apply、bind的区别
+publish: true
+---
+
+<ArticleTopAd></ArticleTopAd>
+
+
 
 ## call()和apply()
 

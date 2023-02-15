@@ -1,3 +1,11 @@
+---
+title: 07-DOM操作练习：innerHTML的方式创建元素
+publish: true
+---
+
+<ArticleTopAd></ArticleTopAd>
+
+
 
 
 ## 动态创建DOM元素的三种方式
@@ -122,16 +130,16 @@ document.write();
 ```html
     //往ul中添加li元素以及li元素中的内容
        ul.innerHTML += '<li>'+
-                       '<a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="生命壹号"></a>'+
-                       '<p><a href="#" title="生命壹号" target="_blank">生命壹号</a></p>'+
+                       '<a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="千古壹号"></a>'+
+                       '<p><a href="#" title="千古壹号" target="_blank">千古壹号</a></p>'+
                    '</li>';
        ul.innerHTML += '<li>'+
-               '<a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="生命壹号"></a>'+
-               '<p><a href="#" title="生命壹号" target="_blank">生命壹号</a></p>'+
+               '<a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="千古壹号"></a>'+
+               '<p><a href="#" title="千古壹号" target="_blank">千古壹号</a></p>'+
                '</li>';
        ul.innerHTML += '<li>'+
-               '<a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="生命壹号"></a>'+
-               '<p><a href="#" title="生命壹号" target="_blank">生命壹号</a></p>'+
+               '<a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="千古壹号"></a>'+
+               '<p><a href="#" title="千古壹号" target="_blank">千古壹号</a></p>'+
                '</li>';
 
 ```
@@ -280,8 +288,8 @@ document.write();
                         <div class="module cl ml mls" id="users">
                             <ul>
                                 <!--<li>-->
-                                <!--<a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="生命壹号"></a>-->
-                                <!--<p><a href="#" title="生命壹号" target="_blank">生命壹号</a></p>-->
+                                <!--<a href="#" target="_blank"><img src="images/noavatar_small.gif" width="48" height="48" alt="千古壹号"></a>-->
+                                <!--<p><a href="#" title="千古壹号" target="_blank">千古壹号</a></p>-->
                                 <!--</li>-->
 
                             </ul>
@@ -336,9 +344,7 @@ document.write();
 </html>
 ```
 
-工程文件：
-
-- [2018-02-01-获取在线用户列表demo.rar](http://download.csdn.net/download/smyhvae/10237611)
+工程文件：[2018-02-01-获取在线用户列表demo.rar](https://github.com/qianguyihao/web-resource/blob/main/project/2018-02-01-%E8%8E%B7%E5%8F%96%E5%9C%A8%E7%BA%BF%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8demo.rar)
 
 
 
