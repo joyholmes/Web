@@ -3,156 +3,116 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Tab 标签</title>
+    <title>Document</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #F7F7F7;
+        html * {
+            padding: 0px;
+            margin: 0px;
         }
 
-        .tabs {
-            width: 400px;
-            margin: 30px auto;
-            background-color: #FFF;
-            border: 1px solid #C0DCC0;
-            box-sizing: border-box;
+        .layout {
+            margin-bottom: 150px;
         }
 
-        .tabs nav {
-            height: 40px;
-            text-align: center;
-            line-height: 40px;
-            overflow: hidden;
-            background-color: #C0DCC0;
-            display: flex;
+
+        .layout article div { /*注意，这里是设置每个小块儿的高度为100px，而不是设置大容器的高度。大容器的高度要符合响应式*/
+            height: 100px;
         }
 
-        nav a {
-            display: block;
-            width: 100px;
-            border-right: 1px solid #FFF;
-            color: #000;
-            text-decoration: none;
+        /* 方法一 start */
+
+        .layout.float .left {
+            float: left;
+            width: 300px;
+            background: red;
         }
 
-        nav a:last-child {
-            border-right: 0 none;
+        .layout.float .right {
+            float: right;
+            width: 300px;
+            background: blue;
         }
 
-        nav a.active {
-            background-color: #9BAF9B;
+        .layout.float .center {
+            background: green;
+
         }
 
-        .cont {
-            overflow: hidden;
-            display: none;
+        /* 方法一 end */
+
+
+        /* 方法二 start */
+        .layout.absolute .left-center-right {
+            position: relative;
         }
 
-        .cont ol {
-            line-height: 30px;
+        .layout.absolute .left {
+            position: absolute;
+            left: 0;
+            width: 300px;
+            background: red;
         }
+
+        /* 【重要】中间的区域，左侧定位300px，右侧定位为300px，即可完成。宽度会自使用 */
+        .layout.absolute .center {
+            position: absolute;
+            left: 300px;
+            right: 300px;
+            background: green;
+        }
+
+        .layout.absolute .right {
+            position: absolute;
+            right: 0;
+            width: 300px;
+            background: blue;
+        }
+
+
+        /* 方法二 end */
     </style>
 </head>
 
 <body>
-    <div class="tabs">
-        <nav>
-            <a href="javascript:;" data-cont="local">国内新闻</a>
-            <a href="javascript:;" data-cont="global">国际新闻</a>
-            <a href="javascript:;" data-cont="sports">体育新闻</a>
-            <a href="javascript:;" data-cont="funny">娱乐新闻</a>
-        </nav>
-        <section class="cont" id="local">
-            <ol>
-                <li>国内新闻1</li>
-                <li>国内新闻2</li>
-                <li>国内新闻3</li>
-                <li>国内新闻4</li>
-                <li>国内新闻5</li>
-                <li>国内新闻6</li>
-                <li>国内新闻7</li>
-            </ol>
-        </section>
-        <section class="cont" id="global">
-            <ol>
-                <li>国内新闻1</li>
-                <li>国际新闻2</li>
-                <li>国际新闻3</li>
-                <li>国际新闻4</li>
-                <li>国际新闻5</li>
-                <li>国际新闻6</li>
-            </ol>
-        </section>
-        <section class="cont" id="sports">
-            <ol>
-                <li>体育新闻1</li>
-                <li>体育新闻2</li>
-                <li>体育新闻3</li>
-                <li>体育新闻4</li>
-                <li>体育新闻5</li>
-                <li>体育新闻6</li>
-                <li>体育新闻7</li>
-            </ol>
-        </section>
-        <section class="cont" id="funny">
-            <ol>
-                <li>娱乐新闻1</li>
-                <li>娱乐新闻2</li>
-                <li>娱乐新闻3</li>
-                <li>娱乐新闻4</li>
-                <li>娱乐新闻5</li>
-                <li>娱乐新闻6</li>
-                <li>娱乐新闻7</li>
-            </ol>
-        </section>
-    </div>
-    <script>
-        // 目标： 默认显示一个 当前的样式
-        // 点击导航，实现切换
-        // key 表示的当前显示的是第几个
 
-        (function (key) {
-            // 获取所有的导航
-            var navs = document.querySelectorAll('nav a');
-            // 遍历 给导航 绑定事件，并且添加当前样式
-            for (var i = 0; i < navs.length; i++) {
-                // 如果是用户指定的当前样式
-                if (key == i) {
-                    navs[i].classList.add('active');
-                    // 拿到要显示内容section的id
-                    var secId = navs[i].dataset['cont'];
-                    // 获取对应的section标签
-                    document.querySelector('#' + secId).style.display = 'block';
-                }
+    <!-- 方法一：浮动 start -->
+    <!-- 输入 section.layout.float，即可生成  -->
+    <section class="layout float">
+        <!-- 用  article 标签包裹左、中、右三个部分 -->
+        <article class="left-right-center">
+            <!-- 输入 div.left+div.right+div.center，即可生成 -->
+            <div class="left">
+                我是 left
+            </div>
+            <!-- <div class="right">
+                我是 right
+            </div> -->
+            <div class="center">
+                浮动解决方案
+                我是 center
+            </div>
+            <div class="right">
+                我是 right
+            </div>
 
-                // 给每一个导航绑定点击事件
-                navs[i].onclick = function () {
-                    // 排他
-                    // 之前有active样式的清除, 之前显示的section 隐藏
-                    var currentNav = document.querySelector('.active');
-                    if(currentNav) {
-                        // 获取对应的内容区域 ，让其隐藏
-                        var currentId = currentNav.dataset['cont'];
-                        // 去掉导航的active 样式
-                        currentNav.classList.remove('active');
-                        // 对应的内容区域
-                        document.querySelector('#' + currentId).style.display = 'none';
-                    }
+        </article>
 
-                    // 突出显示自己 导航添加样式  对应的section 显示
-                    // 给自己添加active样式
-                    this.classList.add('active');
-                    // 对应的section模块显示出来
-                    var myId = this.dataset['cont'];
-                    document.querySelector('#' + myId).style.display = 'block';
-                }
-            }
+    </section>
+    <!-- 方法一：浮动 end -->
 
-        })(5);
-
-
-    </script>
+    <!-- <section class="layout absolute">
+        <article class="left-center-right">
+            <div class="left">
+                我是 left
+            </div>
+            <div class="right">
+                我是 right
+            </div>
+            <div class="center">
+                <h1>绝对定位解决方案</h1>
+                我是 center
+            </div>
+        </article>
+    </section> -->
 </body>
-
 </html>
