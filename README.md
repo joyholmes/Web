@@ -39,6 +39,17 @@
 ![](https://img.smyhvae.com/20220401_1800.jpg)
 
 
+## 学习交流
+
+扫码加我，请先主动做自我介绍，然后拉你进微信交流群：
+
+- 添加暗号：前端学习
+
+- 进群要求：少闲聊、多分享（不适合长期潜水）。
+
+![](https://img.smyhvae.com/202401081613034.jpg)
+
+
 ## LICENSE
 
 ![](http://img.smyhvae.com/20210331_CC-BY-NC-SA.png)

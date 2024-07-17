@@ -118,7 +118,7 @@ VS  Code被分为以下五个区域：
 
 VS Code在功能上非常克制，只包含了大多数开发流程中所需要的基础模块，包括：编辑器、文件管理、窗口管理、首选项设置、终端等。
 
-你需要根据具体需要安装额外的组件或者插件。比如说，如果开发TS项目，则需要安装 TS编译器、ESLint、TSLint等编译工具。如果开发C语言项目，则需要安装gcc、Clang等编辑工具。
+你需要根据具体需要安装额外的组件或者插件。比如说，如果开发TS项目，则需要安装 TS编译器，以及ESLint、TSLint等语法规则&代码风格的检查工具。如果开发C语言项目，则需要安装gcc、Clang等编译工具。
 
 ## 二、崭露锋芒：VS Code 快捷键
 
@@ -250,6 +250,8 @@ VS Code 用得熟不熟，首先就看你是否会用快捷键。以下列出的
 
 ![](http://img.smyhvae.com/20190329_2120.png)
 
+此外，如果你输入这个快捷键后没起作用，那有可能是与其他软件（比如 PicGo 软件）的快捷键冲突了，请检查一下。
+
 ### 11、快捷键列表
 
 你可以点击 VS Code 左下角的齿轮按钮，效果如下：
@@ -360,8 +362,6 @@ Mac 用户按住快捷键 `Cmd+Shift+P` （Windows 用户按住快捷键`Ctrl+Sh
 （1）我们可以在设置面板的顶部搜索框，输入关键词，就能迅速定位到你想要的设置项。
 
 （2）上图中，点击右上角的icon，可以通过 json文件的形式修改设置项。
-
-
 
 
 
@@ -577,7 +577,30 @@ VS Code 会根据你所打开的文件来决定该使用空格还是制表。也
 
 ![20211012_1704](http://img.smyhvae.com/20211012_1704.png)
 
+### 16、自动删除行尾的空格
 
+打开设置项，搜索`files.trimTrailingWhitespace`，将选项勾选，即可在保存文件时自动删除行尾的空格。
+
+### 17、突出显示成对的括号
+
+我们可以用不同颜色显示代码中成对的括号，并用连线标注括号范围。简称**彩虹括号**。
+
+最早是通过`Bracket Pair Colorizer 2`插件支持的，但是这个插件已经被废弃了，因为 VS Code 已经内置了该功能。我们可以通过 VS Code的如下配置项，达到效果：
+
+```json
+{
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs":"active"
+}
+```
+
+### 18、自动换行
+
+自动换行：意味着当文本到达屏幕或页面的右边缘时，自动换行会将文本移到下一行，以便继续输入或显示。
+
+打开设置项，搜索`Editor:Word Wrap`，将选项值设置为 on。
+
+此外，你还可以选择菜单栏`查看-->自动换行`，即可将当前文件设置为自动换行。
 
 > 接下来，我们来讲一些更高级的操作。
 
@@ -687,6 +710,13 @@ source ~/.bash_profile
 参考链接：
 
 - [mac通过终端code 命令打开vscode](https://blog.csdn.net/logan_LG/article/details/106800904)
+
+当然，还可以通过命令面板，一键设置环境变量。具体做法是：输入快捷键「Cmd + shift + P」打开命令面板，然后选择 `shell 命令：从 PATH 中卸载 “code”命令`：
+
+![](https://img.smyhvae.com/202310201605408.png)
+
+
+完成后就可以在终端输入命令+文件路径来启动 VS Code 了。
 
 ### 3、从终端 code 命令启动 VS Code（Windows电脑）
 
@@ -1037,7 +1067,14 @@ VS Code **内置**了对 Node.js 运行时的调试支持，可以直接调试  
 
 操作方法：菜单栏选择「查看-外观-禅模式」即可；或者按下快捷键`Cmd + K`，放手，再按`Z`也可以达到目的。
 
-### 正则表达式批量删除字符串
+### 25、远程同步 VS Code 配置项
+
+
+北京时间的[2020年8月14日](https://zhuanlan.zhihu.com/p/184868336)，微软发布 Visual Studio Code 1.48 稳定版。此版本**原生**支持用户同步 VS Code的配置，只需要登录微软账号或者 GitHub 账号即可。
+
+有了这个功能之后，我们可以先在老电脑上登录账号，即可将软件的配置项自动开启云同步。当你下次换一个新的电脑，下载安装 VS Code，点击软件左下角的设置按钮，登录此前的微软账号或GitHub账号，即可自动将旧电脑的软件配置项，同步到新电脑的软件上。极其方便。
+
+### 26、正则表达式批量删除字符串
 
 **需求**：将文本中的字符串`axxxxb`，批量替换为`ab`。其中，开头字符 a 和 结尾字符 b 固定，中间xxx长度不确定。
 
@@ -1191,9 +1228,13 @@ GitLens 在 Git 管理上有很多强大的功能，比如：
 #### Vetur
 
 Vue 多功能集成插件，包括：语法高亮，智能提示，emmet，错误提示，格式化，自动补全，debugger。VS Code 官方钦定 Vue 插件，Vue 开发者必备。
+
 #### ES7 React/Redux/GraphQL/React-Native snippets
 
 React/Redux/react-router 的语法智能提示。
+
+安装该插件后，在代码中只需要输入`clg`即可自动补全`console.log()`这行代码。
+
 #### JavaScript(ES6) code snippets
 
 ES6 语法智能提示，支持快速输入。
@@ -1226,16 +1267,10 @@ ES6 语法智能提示，支持快速输入。
 
 ### 4、代码显示增强插件
 
-#### Bracket Pair Colorizer 2：突出显示成对的括号【荐】
 
-`Bracket Pair Colorizer 2`插件：以不同颜色显示成对的括号，并用连线标注括号范围。简称**彩虹括号**。
+#### highlight-icemode：选中相同的代码时，让高亮显示更加明显
 
-另外，还有个`Rainbow Brackets`插件，也可以突出显示成对的括号。
-
-
-#### highlight-icemode：选中相同的代码时，让高亮显示更加明显【荐】
-
-VSCode 自带的高亮显示，实在是不够显眼。用插件支持一下吧。
+VSCode 自带的高亮显示，实在是不够显眼。可以用插件支持一下。
 
 所用了这个插件之后，VS Code 自带的高亮就可以关掉了：
 
@@ -1427,21 +1462,8 @@ CSS Peek 对 Vue 没有支持，该插件提供了对 Vue 文件的支持。
 
 如题。
 
-#### Settings Sync
 
-- 地址：<https://github.com/shanalikhan/code-settings-sync>
 
-- 作用：多台设备之间，同步 VS Code 配置。通过登录 GitHub 账号来使用这个同步工具。
-
-同步的详细操作，下一段会讲。
-
-另外，北京时间的[2020年8月14日](https://zhuanlan.zhihu.com/p/184868336)，微软发布 Visual Studio Code 1.48 稳定版。此版本**原生**支持用户同步 VS Code的配置，只需要登录微软账号或者 GitHub账号即可。
-
-#### vscode-syncing
-
-- 地址：<https://github.com/nonoroazoro/vscode-syncing>
-
-- 作用：多台设备之间，同步 VS Code 配置。
 
 #### minapp：小程序支持
 
